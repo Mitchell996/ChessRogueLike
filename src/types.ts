@@ -10,6 +10,7 @@ export enum Figures {
 	PAWN = 'pawn',
 	QUEEN = 'queen',
 	ROOK = 'rook',
+	CAMEL ='camel'
 }
 
 export const BoardLettersByNumber: {[key: number]: string} = {

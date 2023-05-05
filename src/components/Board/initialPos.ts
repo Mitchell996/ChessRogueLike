@@ -45,7 +45,7 @@ export const initialFigures: {[key: string]: FigureData} = {
 	},
 	'black-knight-7-8': {
 		id: 'black-knight-7-8',
-		name: Figures.KNIGHT,
+		name: Figures.CAMEL,
 		x: 7,
 		y: 8,
 		color: Colors.BLACK,
@@ -160,7 +160,7 @@ export const initialFigures: {[key: string]: FigureData} = {
 	},
 	'white-knight-7-1': {
 		id: 'white-knight-7-1',
-		name: Figures.KNIGHT,
+		name: Figures.CAMEL,
 		x: 7,
 		y: 1,
 		color: Colors.WHITE,

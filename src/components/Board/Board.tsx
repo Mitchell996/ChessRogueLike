@@ -269,6 +269,9 @@ const Board: React.FC = () => {
 		}
 
 		const isEatableCell = (x: number, y: number): boolean => {
+			if(cellsFigure[`${x}-${y}`]?.name === Figures.KING && cellsFigure[`${x}-${y}`]?.color !== figure.color){
+				console.log("check!");
+			}
 			if (cellsFigure[`${x}-${y}`] && figure.color !== cellsFigure[`${x}-${y}`]?.color) return true;
 			return false;
 		}
@@ -282,6 +285,7 @@ const Board: React.FC = () => {
 		}
 
 		const checkEatableOrAlliesCell = (x: number, y: number): boolean => {
+			
 			if (cellsFigure[`${x}-${y}`] && cellsFigure[`${x}-${y}`]?.color === figure.color) return true;
 			if (isEatableCell(x, y)) {
 				way.push({x, y})
@@ -376,6 +380,36 @@ const Board: React.FC = () => {
 			checkMovesByKnight();
 			checkEatableFiguresByKnight();
 		}
+
+
+		// CAMEL
+		const checkMovesByCamel = () => {
+			checkCellForMove(figure.x + 1, figure.y + 3);
+			checkCellForMove(figure.x - 1, figure.y + 3);
+			checkCellForMove(figure.x + 3, figure.y + 1);
+			checkCellForMove(figure.x + 3, figure.y - 1);
+			checkCellForMove(figure.x + 1, figure.y - 3);
+			checkCellForMove(figure.x - 1, figure.y - 3);
+			checkCellForMove(figure.x - 3, figure.y - 1);
+			checkCellForMove(figure.x - 3, figure.y + 1);
+		}
+
+		const checkEatableFiguresByCamel = () => {
+			checkEatableOrAlliesCell(figure.x + 1, figure.y + 3);
+			checkEatableOrAlliesCell(figure.x - 1, figure.y + 3);
+			checkEatableOrAlliesCell(figure.x + 3, figure.y + 1);
+			checkEatableOrAlliesCell(figure.x + 3, figure.y - 1);
+			checkEatableOrAlliesCell(figure.x + 1, figure.y - 3);
+			checkEatableOrAlliesCell(figure.x - 1, figure.y - 3);
+			checkEatableOrAlliesCell(figure.x - 3, figure.y - 1);
+			checkEatableOrAlliesCell(figure.x - 3, figure.y + 1);
+		}
+
+		if (figure.name === Figures.CAMEL) {
+			checkMovesByCamel();
+			checkEatableFiguresByCamel();
+		}
+
 
 		// BISHOP
 		if (figure.name === Figures.BISHOP) {

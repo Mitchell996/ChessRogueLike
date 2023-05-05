@@ -23,6 +23,10 @@ const Main: React.FC = () => {
 		navigate("/game");
 	}
 
+	const prepBoard = () =>{
+		navigate("/prep")
+	}
+
 	return <div className={styles.wrapper}>
 		<div className={styles.logo}></div>
 		<h2>Choose side</h2>
@@ -32,6 +36,7 @@ const Main: React.FC = () => {
 			</form>
 		{isGameStarted && <Link to="game" className={styles.button}>Continue</Link>}
 		<a href="#" onClick={startNewGame} className={styles.button}>Start new game</a>
+		<a href="#" onClick={prepBoard} className={styles.button}>Prep Board</a>
 	</div>
 }
 
